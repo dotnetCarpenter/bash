@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 # changedir.sh
-# @version 12.10.1
+# @version 12.10.2
 changeDir() {
 	cd $1 || {
 		echo "Cannot change to necessary directory." >&2	#TODO: what does >&2 mean?

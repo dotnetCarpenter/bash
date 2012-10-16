@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 # replaceFileNames.sh
 # @version 12.10.2
 path=$1; find=$2; change=$3
 
 # display usage if -h or --help
 if [[ "$path" == "-h" || "$path" == "--help" ]]; then
-	echo "Usage: $0 path [find change]"
+	echo "Usage: $0 path [find] [change]"
 	echo "Where path is where you want to change file names. Example: ./"
 	echo "find is a regular expression that finds the part you want to replace (using grep -e). Defaults to \"\.tmp\"."
 	echo "change is what you want to subtitute the find part with. Deletes the find part if empty."

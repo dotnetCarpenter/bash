@@ -1,0 +1,1 @@
+To create a command, simply ln -s [path to your .sh file] /usr/local/bin/[name of command]

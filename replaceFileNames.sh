@@ -1,14 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 # replaceFileNames.sh
-# @version 12.10.4
-version="12.10.4"
+# @version 12.10.5
+version="12.10.5"
 path=$1; find=$2; change=$3; verbose=false
 
 #echo "Number of command-line arguments passed to script = ${#@}"	# debugging
 #echo "Number of command-line arguments passed to script = ${#*}"	# debugging
 
 # display usage if -h or --help
-if [[ "$path" == "-h" || "$path" == "--help" ]]; then
+if [[ $1 == "-h" || $1 == "--help" ]]; then
 	echo "Usage: $0 [-v|--version] | [--verbose] path [find] [change]"
 	echo "Where path is where you want to change file names. Example: ./"
 	echo "find is a regular expression that finds the part you want to replace (using egrep -e). Defaults to \"\.tmp\"."
@@ -26,14 +26,14 @@ if [[ "$path" == "-h" || "$path" == "--help" ]]; then
 	exit 0
 fi
 
-if [[ "$gitpath" == "-v" || "$gitpath" == "--version" ]]; then
-	echo $version
-	echo "(year.month.revision)"
+if [[ $1 == "-v" || $1 == "--version" ]]; then
+	echo `basename $0` $version
+	echo "	(year.month.revision)"
 	exit 0
 fi
 
 # support --verbose command
-if [[ "$path" == "--verbose" ]]; then
+if [[ $1 == "--verbose" ]]; then
 	verbose=true
 	path=$2; find=$3; change=$4
 fi
@@ -49,7 +49,7 @@ htmlFiles=(`ls | egrep -e ${find}`)			# grap all files with ".tmp" in file name 
 for file in "${htmlFiles[@]}"				# loop through all files
 do
 	$verbose && echo "Changing $file"
-	`mv $file ${file//${find}/${change}}`	# execute mv command with file name and file name with-out ".tmp"
+	`mv $file ${file//${find}/${change}}`	# execute mv command with file name and modified file name
 	$verbose && echo "To ${file//${find}/${change}}"
 done
 exit $?										# exit with status code from last command (mv)

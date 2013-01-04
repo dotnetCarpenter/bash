@@ -1,0 +1,7 @@
+2012-10-15 20:50:40 +0200	remove '.tmp' from file names
+2012-10-16 04:31:03 +0200	changed name, made the script general in that it can change what-ever part of a file name now and moved the change directory part out to a library function
+2012-10-16 04:32:20 +0200	remove old script names
+2012-10-16 15:16:55 +0200	changed sha-bang to #!/bin/sh - trying to make the scripts portable
+2012-10-16 15:17:43 +0200	added script to print commits from git to a tab seperated file (.tsv)
+2012-10-16 17:30:50 +0200	added usage info, verbose command and version command
+2012-10-16 17:31:51 +0200	added verbose and version command + one more example in usage description

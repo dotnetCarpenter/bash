@@ -1,8 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 # changedir.sh
-# @version 12.10.2
+# @version 12.10.3
 changeDir() {
-	cd $1 || {
+	path=${1/#\~/$HOME}
+	echo "$path";echo "$1"
+	cd "$path" || {
 		echo "Cannot change to necessary directory." >&2	#TODO: what does >&2 mean?
 		exit $?		# exit with status code from last command (cd)
 	}
